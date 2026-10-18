@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+cmake-build-*/
+
+# В папках лаб храним только исходники
+Lab_*/*
+!Lab_*/*.c
+!Lab_*/*.h
+!Lab_*/*.md
