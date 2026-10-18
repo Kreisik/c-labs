@@ -17,20 +17,20 @@ int last_positive_element(const double arr[], int size) {
 
 }
 
-int first_positive_element(const double arr[], int size) {
-
-    double first_positive_elem = arr[0];
-    int index = 0;
-    for (int i = 1; i < size; i++) {
-        if (arr[i] > first_positive_elem) {
-            first_positive_elem = arr[i];
-            index = i;
-            break;
-        }
-    }
-    return index;
-
-}
+// int first_positive_element(const double arr[], int size) {
+//
+//     double first_positive_elem = arr[0];
+//     int index = 0;
+//     for (int i = 1; i < size; i++) {
+//         if (arr[i] > first_positive_elem) {
+//             first_positive_elem = arr[i];
+//             index = i;
+//             break;
+//         }
+//     }
+//     return index;
+//
+// }
 
 int main() {
 
