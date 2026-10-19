@@ -8,7 +8,17 @@ void clear_input(void) { // Функция для очистки памяти п
     }
 }
 
+int findMaxInMatrixRow(int **matrix, int m, int n) { // Функция для нахождения минимального числа в строке
+    int maxVal = matrix[m][0];
 
+    for (int j = 1; j < n; j++) {
+        if (matrix[m][j] > maxVal) {
+            maxVal = matrix[m][j];
+        }
+    }
+
+    return maxVal;
+}
 
 int main() {
 
@@ -49,6 +59,29 @@ int main() {
             scanf("%d", &x);
             table[i][j] = x;
         }
+    }
+
+    for (int i = 0; i < m - 1; i++) { // Сортировка массива
+        int min_idx = i;
+        for (int j = i + 1; j < m; j++) {
+            if (findMaxInMatrixRow(table, j, n) < findMaxInMatrixRow(table, min_idx, n)) { // Условие если элемент i + 1 меньше элемента i
+                min_idx = j; // Если это так то индекс элемента минимального равен j
+            }
+        }
+
+        if (min_idx != i) { // Если поменялось min_idx, то меняем местами строчки
+            int *temp = table[i];
+            table[i] = table[min_idx];
+            table[min_idx] = temp;
+        }
+    }
+
+    printf("\nSorted matrix:\n"); // Вывод массива
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%4d", table[i][j]);
+        }
+        printf("\n");
     }
 
     for (int i = 0; i < m; i++) { // Очистка памяти
