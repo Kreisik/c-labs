@@ -1,1 +1,24 @@
-LABS BSUIR (FITС/AI)
+# C Labs
+
+Лабораторные работы по программированию на языке C.
+
+## Структура
+
+- `Lab_second/` — лабораторная работа №2
+- `Lab_third/` — лабораторная работа №3
+- `Lab_fourth/` — лабораторная работа №4
+
+В каждой папке по три задачи: `Lab_*_1.c`, `Lab_*_2.c`, `Lab_*_3.c`.
+
+## Как собрать и запустить
+
+Через CMake:
+
+    mkdir build && cd build
+    cmake ..
+    make
+
+Или напрямую компилятором, например:
+
+    clang Lab_second/Lab_second_1.c -o Lab_second_1
+    ./Lab_second_1
