@@ -3,9 +3,8 @@
 cmake-build-*/
 
 # В папках лаб храним только исходники
-Lab_fifth
-First_sem
-Lab_*/*
+!First_sem
+!Lab_*/*
 !Lab_*/*.c
 !Lab_*/*.h
 !Lab_*/*.md
