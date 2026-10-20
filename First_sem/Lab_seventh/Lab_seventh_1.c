@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//
 struct Student { // Создание структуры пользователя
     char lastname[50];
     int group;
