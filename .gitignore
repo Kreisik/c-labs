@@ -12,3 +12,4 @@ First_sem/**
 !First_sem/**/*.c
 !First_sem/**/*.h
 !First_sem/**/*.md
+!First_sem/**/*.pdf
