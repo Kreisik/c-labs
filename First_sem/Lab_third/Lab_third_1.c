@@ -13,7 +13,7 @@ int main(void) {
             printf("Incorrect numbers. Enter correct numbers: ");
 
             char c;
-            while ((c = getchar()) != '\n' && c != EOF) {
+            while ((c = getchar()) != '\n') {
                 // Выброс ненужных символов
             }
         }
@@ -24,7 +24,7 @@ int main(void) {
             continue;
         }
 
-        double arr[1000];
+        double arr[100];
         int count = 1;
         int size = 0;
 
@@ -32,7 +32,7 @@ int main(void) {
         printf("| i  |     x      |         Y(x)        |\n");
         printf("-----------------------------------------\n");
 
-        while (a <= b && size < 1000) {
+        while (a <= b && size < 100) {
 
             double first_part = a * (sqrt(2) / 2);
             double second_part = 1 - 2 * a * (sqrt(2) / 2) + pow(a, 2);

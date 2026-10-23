@@ -26,7 +26,7 @@ double second_function(double number, int count) { // Функция нахож�
 
 void clear_input(void) { // Функция для очистки памяти программы
     int c;
-    while ((c = getchar()) != '\n' && c != EOF) {
+    while ((c = getchar()) != '\n') {
 
     }
 }
@@ -39,9 +39,6 @@ int main(void) {
         while (1) { // Бесконечный цикл, до момента, пока не будет введено корректное число
             printf("Enter a, b, h, e: ");
             int res = scanf("%lf %lf %lf %lf", &a, &b, &h, &e);
-            if (res == EOF) {
-                return 1;
-            }
             clear_input();
 
             if (res != 4) { // Проверки на коррекстность ввода
@@ -84,9 +81,6 @@ int main(void) {
         while (1) { // Бесконечный цикл до момента, пока пользователь не введет 1
             printf("Do you want to continue?(Enter 1 - if you want finish; 0 - if you want to continue): ");
             int res = scanf("%d", &again);
-            if (res == EOF) {
-                return 0;
-            }
             clear_input();
             if (res == 1 && (again == 0 || again == 1)) {
                 break;

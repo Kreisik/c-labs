@@ -1,3 +1,5 @@
+// Бондаренко Степан 621704 | Лаба 4 | 3 Вариант | 30.09.2026
+
 #include <stdio.h>
 
 // double GetMax(const double arr[], int size) { // Функция для нахождения минимального значения
@@ -23,18 +25,6 @@
 //
 //     return minVal;
 // }
-
-double last_positive_element(const double arr[], int size) {
-
-    int last_index = -1;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] > 0) {
-            last_index = i;
-        }
-    }
-    return last_index;
-
-}
 
 // double last_negative_element(const double arr[], int size) {
 //
@@ -64,23 +54,86 @@ double last_positive_element(const double arr[], int size) {
 //
 // }
 
+void clear_input(void) {
+    // Функция для очистки буфера ввода
+    int c;
+    while ((c = getchar()) != '\n') { }
+}
+
+double last_positive_element(const double arr[], int size) {
+
+    int last_index = -1;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > 0) {
+            last_index = i;
+        }
+    }
+    return last_index;
+
+}
+
 int main() {
+    int again = 0;
+    do {
+        int n;
 
-    int n;
-    printf("Enter length of array: ");
-    if (scanf("%d", &n) != 1 || n <= 0) { // Проверка на ввод корректного n
-        printf("Incorrect number! \n");
-        return 1;
-    }
+        while (1) {
+            printf("Enter length of array: ");
+            int res = scanf("%d", &n);
+            clear_input();
 
-    double array[n];
-    printf("Enter elements of array: ");
-    for (int i = 0; i < n; i++) {
+            if (res != 1 || n <= 0) {
+                printf("Incorrect number! Length must be > 0.\n");
+            } else {
+                break;
+            }
 
-        scanf("%lf", &array[i]);
+        }
+        double array[n];
 
-    }
+        while (1) {
+            printf("Enter elements of array: ");
+            int correct_element = 0;
+            for (int i = 0; i < n; i++) {
+                if (scanf("%lf", &array[i]) == 1) {
+                    correct_element++;
+                } else {
+                    break;
+                }
+            }
 
+            clear_input();
+
+            if (correct_element != n) {
+                printf("Incorrect array elements. Please re-enter all elements.\n");
+            } else {
+                break;
+            }
+        }
+
+        //Сумма элементов массива, расположенных до последнего положительного элемента
+        double last_positive_element_result = 0;
+        if (last_positive_element(array, n) <= 0) {
+            printf("Your array doesn`t contain positive numbers");
+            return 0;
+        }
+        for (int i = 0; i < last_positive_element(array, n); i++) {
+            last_positive_element_result += array[i];
+        }
+        printf("The sum of the array elements located before the last positive element: %f \n", last_positive_element_result);
+
+        while (1) {
+            printf("Do you want to continue? (Enter 1 - if you want finish; 0 - if you want to continue): ");
+            int res = scanf("%d", &again);
+            clear_input();
+
+            if (res == 1 && (again == 0 || again == 1)) {
+                break;
+            }
+            printf("Enter 0 or 1.\n");
+        }
+
+    } while (again != 1);
     //Нахождение ср. арифм. положительных чисел
     // double sum_of_positive_numbers = 0;
     // double number_of_positive_numbers = 0;
@@ -117,16 +170,6 @@ int main() {
     // }
     // printf("Result of multiplication after max value: %f \n", sum_of_multiplication_max);
 
-    //Сумма элементов массива, расположенных до последнего положительного элемента
-    double last_positive_element_result = 0;
-    if (last_positive_element(array, n) <= 0) {
-        printf("Your array doesn`t contain positive numbers");
-        return 0;
-    }
-    for (int i = 0; i < last_positive_element(array, n); i++) {
-        last_positive_element_result += array[i];
-    }
-    printf("The sum of the array elements located before the last positive element: %f \n", last_positive_element_result);
 
     //Сумма элементов, расположенных до наименьшего элемента
     // double sum_of_elements_before_min = 0;

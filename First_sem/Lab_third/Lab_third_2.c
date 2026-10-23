@@ -5,7 +5,7 @@
 
 void clear_input(void) { // Функция для очистки памяти программы
     int c;
-    while ((c = getchar()) != '\n' && c != EOF) {
+    while ((c = getchar()) != '\n') {
 
     }
 }
@@ -19,9 +19,6 @@ int main(void) {
         while (1) { // Бесконечный цикл, до момента, пока не будет введено корректное число
             printf("Enter a, b, h, n: ");
             int res = scanf("%lf %lf %lf %d", &a, &b, &h, &n);
-            if (res == EOF) {
-                return 1;
-            }
             clear_input();
 
             if (res != 4) {
@@ -66,9 +63,6 @@ int main(void) {
         while (1) {
             printf("Do you want to continue?(Enter 1 - if you want finish; 0 - if you want to continue): ");
             int res = scanf("%d", &again);
-            if (res == EOF) {
-                return 0;
-            }
             clear_input();
             if (res == 1 && (again == 0 || again == 1)) {
                 break;
