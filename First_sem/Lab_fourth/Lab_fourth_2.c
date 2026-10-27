@@ -12,10 +12,12 @@ void clear_input(void) {
 
 int last_positive_element(const double arr[], int size) {
 
-    double last_positive_elem = arr[0];
-    int index = 0;
-    for (int i = 1; i < size; i++) {
-        if (arr[i] > last_positive_elem) {
+    double last_positive_elem = arr[size - 1];
+    int index = size;
+    for (int i = size - 1; i >= 0; i--) {
+        if (arr[i] > 0) {
+            break;
+        } else {
             last_positive_elem = arr[i];
             index = i;
         }
@@ -30,11 +32,16 @@ int first_positive_element(const double arr[], int size) {
     double first_positive_elem = arr[0];
     int index = 0;
     for (int i = 1; i < size; i++) {
-        if (arr[i] > first_positive_elem) {
-            first_positive_elem = arr[i];
-            index = i;
+        if (arr[i] < 0) {
+            if (arr[i] > first_positive_elem) {
+                first_positive_elem = arr[i];
+                index = i;
+                break;
+            }
+        } else if (arr[i] > 0) {
             break;
         }
+
     }
     return index;
 
@@ -84,14 +91,14 @@ int main() {
 
         double sum_of_elements = 0;
         if (first_positive_element(array,n) == last_positive_element(array, n)) {
-            printf("Sum of elements between first and last positive elements: %f", array[first_positive_element(array, n)]);
+            printf("Your array contain similar positive elements or two elements equal zero \n");
         } else if (array[first_positive_element(array,n)] < 0 && array[last_positive_element(array,n)] < 0) {
-            printf("Your array contain only negative numbers");
+            printf("Your array contain only negative numbers \n");
         } else {
-            for (int i = first_positive_element(array, n); i < last_positive_element(array, n); i++) {
+            for (int i = first_positive_element(array, n) + 1; i < last_positive_element(array, n) - 1; i++) {
                 sum_of_elements += array[i];
             }
-            printf("Sum of elements between first and last positive elements: %f", sum_of_elements);
+            printf("Sum of elements between first and last positive elements: %f \n", sum_of_elements);
         }
 
         while (1) {
