@@ -75,7 +75,7 @@ int main() {
             int res = scanf("%d", &k);
             clear_input();
 
-            if (res != 1 || n <= 0) {
+            if (res != 1 || k <= 0) {
                 printf("Incorrect number! Length must be > 0.\n");
             } else {
                 break;

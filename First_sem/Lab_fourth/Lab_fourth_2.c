@@ -11,40 +11,21 @@ void clear_input(void) {
 }
 
 int last_positive_element(const double arr[], int size) {
-
-    double last_positive_elem = arr[size - 1];
-    int index = size;
     for (int i = size - 1; i >= 0; i--) {
         if (arr[i] > 0) {
-            break;
-        } else {
-            last_positive_elem = arr[i];
-            index = i;
+            return i;
         }
     }
-
-    return index;
-
+    return -1;
 }
 
 int first_positive_element(const double arr[], int size) {
-
-    double first_positive_elem = arr[0];
-    int index = 0;
-    for (int i = 1; i < size; i++) {
-        if (arr[i] < 0) {
-            if (arr[i] > first_positive_elem) {
-                first_positive_elem = arr[i];
-                index = i;
-                break;
-            }
-        } else if (arr[i] > 0) {
-            break;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > 0) {
+            return i;
         }
-
     }
-    return index;
-
+    return -1;
 }
 
 int main() {
@@ -89,17 +70,23 @@ int main() {
             return 0;
         }
 
+        int first_idx = first_positive_element(array, n);
+        int last_idx = last_positive_element(array, n);
+
         double sum_of_elements = 0;
-        if (first_positive_element(array,n) == last_positive_element(array, n)) {
-            printf("Your array contain similar positive elements or two elements equal zero \n");
-        } else if (array[first_positive_element(array,n)] < 0 && array[last_positive_element(array,n)] < 0) {
-            printf("Your array contain only negative numbers \n");
+        if (first_idx == -1 || last_idx == -1) {
+            printf("Your array does not contain positive elements.\n");
+        } else if (first_idx == last_idx) {
+            printf("Your array contains only one positive element. No elements between.\n");
+        } else if (first_idx + 1 == last_idx) {
+            printf("First and last positive elements are adjacent. Sum is 0.\n");
         } else {
-            for (int i = first_positive_element(array, n) + 1; i < last_positive_element(array, n) - 1; i++) {
+            for (int i = first_idx + 1; i < last_idx; i++) {
                 sum_of_elements += array[i];
             }
             printf("Sum of elements between first and last positive elements: %f \n", sum_of_elements);
         }
+
 
         while (1) {
             printf("Do you want to continue? (Enter 1 - if you want finish; 0 - if you want to continue): ");
