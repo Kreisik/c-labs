@@ -3,7 +3,7 @@
 
 void clear_input(void) { // Функция для очистки памяти программы
     int c;
-    while ((c = getchar()) != '\n' && c != EOF) {
+    while ((c = getchar()) != '\n') {
 
     }
 }
@@ -22,9 +22,6 @@ int main() {
             // Бесконечный цикл, до момента, пока не будет введено корректное число
             printf("Enter m, n: ");
             int res = scanf("%d %d", &m, &n);
-            if (res == EOF) {
-                return 1;
-            }
             clear_input();
 
             if (res != 2) { // Проверки на коррекстность ввода
@@ -45,7 +42,7 @@ int main() {
         vector = malloc(m * sizeof(int)); // Выделение памяти под массив вектора
 
         printf("\nEnter matrix elements:\n");
-        for (int i = 0; i < m; i++) { //Ввод элементов массива
+        for (int i = 0; i < m; i++) { // Ввод элементов массива
             for (int j = 0; j < n; j++) {
                 printf("table[%d][%d]: ", i, j);
                 scanf("%d", &x);
@@ -82,8 +79,10 @@ int main() {
         }
         free(table);
 
+        printf("\n");
+
         while (1) {
-            printf("Do you want to continue? (Enter 1 - if you want finish; 0 - if you want to continue): ");
+            printf("Do you want to continue? (Enter 0 - if you want finish; 1 - if you want to continue): ");
             int res = scanf("%d", &again);
             clear_input();
 
