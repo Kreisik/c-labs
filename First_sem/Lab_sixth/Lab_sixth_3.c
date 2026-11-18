@@ -3,7 +3,7 @@
 
 void clear_input(void) { // Функция для очистки памяти программы
     int c;
-    while ((c = getchar()) != '\n' && c != EOF) {
+    while ((c = getchar()) != '\n') {
 
     }
 }
@@ -26,7 +26,7 @@ int main() {
         printf("Result: %s\n", str_1);
 
         while (1) {
-            printf("Do you want to continue? (Enter 1 - if you want finish; 0 - if you want to continue): ");
+            printf("Do you want to continue? (Enter 0 - if you want finish; 1 - if you want to continue): ");
             int res = scanf("%d", &again);
             clear_input();
 
