@@ -81,10 +81,10 @@ void append_file(const char *filename) { // Функция для добавле
     }
 
     int count;
-    printf("How many students do you want to add?");
+    printf("How many students do you want to add: ");
     scanf("%d", &count);
 
-    for (int i = 0; i < 0; i++) { // Цикл для ввода данных о новых стундентах
+    for (int i = 0; i < count; i++) { // Цикл для ввода данных о новых стундентах
         printf("--- New Student #%d ---", i + 1);
         struct Student s = input_student();
 
