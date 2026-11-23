@@ -7,7 +7,7 @@ void clear_input(void) { // Функция для очистки памяти п
     }
 }
 
-int findGST2(int m, int n) {
+int findGST2(int m, int n) { // Рекурсивная функция для нахождение НОД
 
     if (m % n == 0) {
         return n;
@@ -17,7 +17,7 @@ int findGST2(int m, int n) {
 
 }
 
-int findGST(int m, int n) {
+int findGST(int m, int n) { // Функция для нахождения НОД
 
     if (m < n) {
         int res = m;
